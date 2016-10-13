@@ -3,7 +3,7 @@
  */
 
 var chai   = require('chai');
-var mergeSort = require('../src/mergeSort');
+var mergeSort = require('../src/sorting/mergeSort');
 var assert = chai.assert;
 
 

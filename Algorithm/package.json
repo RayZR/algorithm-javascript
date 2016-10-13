@@ -1,0 +1,20 @@
+{
+  "name": "algorithm-javascript",
+  "version": "1.0.0",
+  "description": "different algorithm implmentation in javascript",
+  "main": "currying.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
