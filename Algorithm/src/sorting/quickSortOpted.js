@@ -29,9 +29,10 @@ var quickSortObj = (function(){
 				var pivot = partitionMedian3(array, low, high);
 				
 				quickSort(array, low, pivot.lt - 1 );
-				quickSort(array, pivot.gt + 1, high);	
-			
+				quickSort(array, pivot.gt + 1, high);
 			}
+
+			return array;
 		}
 
 		function swap(array, indexOne, indexTwo){
@@ -101,28 +102,4 @@ var quickSortObj = (function(){
 		return { quickSort: quickSort }
 })();
 
-// Test Case 
-var sortingArray = [];
-for(var i=0; i< 90; i++){
-    sortingArray[i] =Math.floor((Math.random() * 500) + 1);
-}
-console.log(sortingArray);
-quickSortObj.quickSort(sortingArray, 0, sortingArray.length-1);
-console.log(sortingArray);
-
-var sorted = true;
-for(var j=1; j<90;j++){
-
-	if(sortingArray[j] < sortingArray[j-1]){
-		
-		var sorted = false;
-	}
-}
-
-if(sorted == false){
-
-	console.warn("array not sorted");
-}else{
-
-	console.info("array sorted");
-}
+module.exports = quickSortObj;

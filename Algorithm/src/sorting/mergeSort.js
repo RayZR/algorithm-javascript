@@ -2,10 +2,10 @@ var mergeSort = function(array, p, r) {
     
     if( p < r ){
         
-        var middle = Math.floor((p+r)/2);
+        var middle = Math.floor( ( p + r ) / 2 );
         
         mergeSort(array, p, middle);
-        mergeSort(array, middle+1, r);
+        mergeSort(array, middle + 1, r);
         
         merge(array, p, middle, r);
     }
