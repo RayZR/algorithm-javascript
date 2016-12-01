@@ -10,7 +10,7 @@ var assert = chai.assert;
     describe('mergeSort', function() {
         var sortingArray = [];
         before(function () {
-            for(var i=0; i< 90; i++){
+            for(var i=0; i< 20; i++){
                 sortingArray[i] =Math.floor((Math.random() * 500) + 1);
             }
         });
@@ -21,7 +21,10 @@ var assert = chai.assert;
                 return a - b;
             };
 
-            assert.deepEqual( sortingArray.slice(0).sort(sortNumber), mergeSort(sortingArray, 0, sortingArray.length-1) );
+            console.log(sortingArray);
+            var inBuildSortedArray = sortingArray.slice(0).sort(sortNumber);
+            var result = mergeSort.mergeSort(sortingArray, 0, sortingArray.length-1);
+            assert.deepEqual( inBuildSortedArray,  result);
         });
 
     });

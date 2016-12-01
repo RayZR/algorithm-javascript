@@ -4,7 +4,7 @@
 // It the array length N is less than 10, we will fall back to insertion sort ( 2ln(n) + ln(n)/3 >= n^2/2 , n >= 12)
 var quickSortObj = (function(){
 
-		function insertionSort(array, low, high){
+	var insertionSort = function (array, low, high){
 	
 			for(var i = low; i<= high; i++){
 
@@ -13,9 +13,9 @@ var quickSortObj = (function(){
 						swap(array, j, j-1);
 				}
 			}
-		}
+		};
 
-		function quickSort(array, low, high){
+	var	quickSort = function(array, low, high){
 
 			if(low <= high){
 				
@@ -33,23 +33,23 @@ var quickSortObj = (function(){
 			}
 
 			return array;
-		}
+		};
 
-		function swap(array, indexOne, indexTwo){
+	var swap = function(array, indexOne, indexTwo){
 			
-			var temp = array[indexOne];
-			array[indexOne] = array[indexTwo];
-			array[indexTwo] = temp;
-		}
+                    var temp = array[indexOne];
+                    array[indexOne] = array[indexTwo];
+                    array[indexTwo] = temp;
+                };
 
-		function median3(array, i, j, k){
+	var median3 = function (array, i, j, k){
 			
 			 return (Math.min(array[i], array[j]) ?
 		               (Math.min(array[j], array[k]) ? j : Math.min(array[i], array[k]) ? k : i) :
 		               (Math.min(array[k], array[j]) ? j : Math.min(array[k], array[i]) ? k : i));
-		}
+		};
 
-		function median9(array, lo, hi){
+	var median9	 = function (array, lo, hi){
 			// if N is bigger than 40
 			var N = hi - lo + 1;	
 			var eps = N/8;
@@ -60,11 +60,11 @@ var quickSortObj = (function(){
             var ninther = median3(array, m1, m2, m3);
             //swap(array, ninther, lo);
             return ninther;	
-		}
+		};
 
 		//This function will avoid dutch flag problem. Divide partition into three.
 		//If there are a lot repeat value, it won't trigger worst case.
-		function partitionMedian3(array, low, high){
+	var partitionMedian3 = function (array, low, high){
 			
 			var lt = low, gt = high,  eq = low;;
 			var nlength = high - low + 1;
@@ -97,7 +97,7 @@ var quickSortObj = (function(){
 			}
 			
 			return { lt:lt, gt:gt };
-		}
+		};
 
 		return { quickSort: quickSort }
 })();
