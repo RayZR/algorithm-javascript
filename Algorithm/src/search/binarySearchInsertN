@@ -1,0 +1,62 @@
+function processData(input) {
+    //Enter your code here
+    
+    var input = input.split("\n")[1].split(" ");
+ 
+    var target = input.pop();
+
+    var index = binarySearch(input, 0, input.length-1, target);
+
+    var output = [];
+    
+    for(var end = input.length + 1; end >= 0; end--){
+        
+        if( end > index){
+            output[end] = input[end-1];
+            
+        } else if( end === index ){
+      
+            output[end] = target; 
+        } else if( end < index){
+
+            output[end] = input[end];
+        }
+        
+    }
+    
+    console.log(output.join(" "));
+
+} 
+
+function binarySearch(arr, low, high, target){
+    
+   var middlePoint = low + Math.floor( (high-low)/2 );
+
+   if( arr[middlePoint] > target ){
+        
+       if( middlePoint - 1 <= 0 || arr[middlePoint - 1] < target ){
+           
+           return middlePoint;
+       }
+       
+       var newHigh = low + middlePoint;
+       
+       return binarySearch(arr, low, newHigh, target);
+       
+   } else if( arr[middlePoint] < target ){
+       
+       if( middlePoint + 1 >= arr.length || arr[middlePoint + 1] > target ){
+           
+           return middlePoint;
+       }
+       
+       var newLow = middlePoint + 1;
+       
+       return binarySearch(arr, newLow, high, target);
+       
+   } else {
+       
+       return middlePoint;
+   }
+    
+}
